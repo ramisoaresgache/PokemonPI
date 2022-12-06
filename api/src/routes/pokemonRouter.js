@@ -1,22 +1,17 @@
 const {Router} = require('express')
 const SearchApi = require('../middleware/SearchApi.js')
 const {Pokemon} = require('../db')
-const { API_URL } = process.env;
-const axios = require('axios')
-
-
 
 
 const router = Router()
 
-
 router.get("/",SearchApi,  async (req, res) => {
   try {
-    res.json('hola');
+    const dataPokemon = await Pokemon.findAll()
+    res.status(200).send(dataPokemon);
   } catch (error) {
-    res.json({ error: error.message });
+    res.status(404).send({ error: error.message });
   }
 })
-
 
 module.exports = router;

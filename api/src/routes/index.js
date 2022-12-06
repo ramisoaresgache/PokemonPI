@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const SearchApi = require('../Middleware/SearchApi');
-
+const pokemonRouter = require('../routes/pokemonRouter')
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -11,10 +11,10 @@ const SearchApi = require('../Middleware/SearchApi');
 // Ejemplo: router.use('/auth', authRouter);
 const router = Router()
 
-//router.use('/pokemon', SearchApi)
+router.use('/pokemon', pokemonRouter)
 // router.use('/type', SearchApi)
 
-module.export = router;
+module.exports = router;
 
 
 
