@@ -5,7 +5,8 @@ const { API_URL, AMOUNTH_POKEMON } = process.env; //me traigo las cosas del arch
 
 let gate = true; //seteo la puerta en true para que me entre al condicional
 
-let arrayPokemonsApi= [];
+let arrayPokemonsApi = [];
+
 module.exports = async (req, res, next) => {
   if (gate) {
     // let api = await (await fetch(`${API_URL}/pokemon?${AMOUNTH_POKEMON}`)).json();
@@ -16,7 +17,6 @@ module.exports = async (req, res, next) => {
       },
     });
     const pokemonsUrl2 = api.data.results.map((c) => {
-    
       return axios.get(c.url, {
         headers: {
           "accept-encoding": "*",
@@ -24,7 +24,7 @@ module.exports = async (req, res, next) => {
       });
     });
     console.log(pokemonsUrl2.length);
-    await Promise.all(pokemonsUrl2) .then((pokemon) =>{
+    await Promise.all(pokemonsUrl2).then((pokemon) => {
       arrayPokemonsApi = pokemon.map((p) => {
         return {
           id: p.data.id,
@@ -43,7 +43,7 @@ module.exports = async (req, res, next) => {
           }),
         };
       });
-    })
+    });
     await Pokemon.bulkCreate(arrayPokemonsApi);
     gate = false;
   }
