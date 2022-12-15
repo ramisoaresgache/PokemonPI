@@ -1,10 +1,10 @@
 import axios from "axios";
 
 export const GET_ALL_POKEMONS = "GET_ALL_POKEMONS";
-export const GET_POKEMONSID = "GET_POKEMONSID";
+export const GET_POKEMONS_DETAILS = "GET_POKEMONS_DETAILS";
 export const GET_POKEMONNAME = "GET_POKEMONNAME";
 export const CREATE_POKEMONS = "CREATE_POKEMONS";
-export const DELETE_POKEMONS = "DELETE_POKEMONS";
+export const CLEAN_DETAIL_POKEMONS = "CLEAN_DETAIL_POKEMONS";
 export const GET_TYPES = "GET_TYPES";
 
 export const getAllPokemons = () => {
@@ -15,12 +15,12 @@ export const getAllPokemons = () => {
   };
 };
 
-export const getPokemonsId = (id) => {
+export const getPokemonsDetails = (id) => {
   return async function (dispatch) {
     return await axios
       .get(`http://localhost:3001/pokemon/${id}`)
       .then((data) => {
-        dispatch({ type: GET_POKEMONSID, payload: data.data });
+        dispatch({ type: GET_POKEMONS_DETAILS, payload: data.data });
       });
   };
 };
@@ -45,8 +45,8 @@ export const createPokemons = (payload) => {
   };
 };
 
-export const deletePokemons = (payload) => {
-  return { type: DELETE_POKEMONS, payload };
+export const CleanDetailPokemon = (payload) => {
+  return { type: CLEAN_DETAIL_POKEMONS, payload };
 };
 
 export const getTypes = () => {

@@ -60,7 +60,7 @@ export default function PokemonCreate() {
 
   useEffect(() => {
     dispatch(getTypes());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
