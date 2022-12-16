@@ -1,30 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SearchBar from "./SearchBar";
 import { useDispatch } from "react-redux";
 import { getAllPokemons } from "../Redux/actions";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const NavBar = () => {
   const dispatch = useDispatch();
-  const goHome = () => {
+
+  useEffect(() => {
     dispatch(getAllPokemons());
-  };
+  }, [dispatch]);
+
+  const location = useLocation();
+
   return (
-    <nav>
-      <div>
+    location.pathname !== "/" && (
+      <nav>
         <div>
-          <Link to='/home'>
-            <h1 onClick={goHome} >Home</h1>
+          <div>
+            <Link to='/home'>
+              <h3>Home</h3>
+            </Link>
+          </div>
+          <div>
+            <SearchBar />
+          </div>
+          <Link to='/CreatePokemon'>
+            <h3>Create Pokemon</h3>
           </Link>
         </div>
-        <div>
-          <SearchBar />
-        </div>
-        <Link to='/CreatePokemon'>
-          <h2>Create Pokemon</h2>
-        </Link>
-      </div>
-    </nav>
+      </nav>
+    )
   );
 };
 

@@ -6,26 +6,29 @@ import { getPokemonsNames } from "../Redux/actions";
 export default function SearchBar() {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
-
   const handleImputChange = (e) => {
     e.preventDefault();
+    console.log(name);
     setName(e.target.value);
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(getPokemonsNames(name));
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   dispatch(getPokemonsNames(name));
+  // };
 
   return (
-    <div>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        dispatch(getPokemonsNames(name));
+      }}
+    >
       <input
         type='text'
         placeholder='Buscar...'
-        onChange={(e) => handleImputChange(e)}
+        onChange={handleImputChange}
       />
-      <button type='submit' onClick={(e) => handleSubmit(e)}>
-        Buscar
-      </button>
-    </div>
+      <button type='submit'>Buscar</button>
+    </form>
   );
 }

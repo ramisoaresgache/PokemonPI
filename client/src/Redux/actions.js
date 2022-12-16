@@ -6,6 +6,7 @@ export const GET_POKEMONNAME = "GET_POKEMONNAME";
 export const CREATE_POKEMONS = "CREATE_POKEMONS";
 export const CLEAN_DETAIL_POKEMONS = "CLEAN_DETAIL_POKEMONS";
 export const GET_TYPES = "GET_TYPES";
+export const SET_PAGES = "SET_PAGES";
 
 export const getAllPokemons = () => {
   return async function (dispatch) {
@@ -46,7 +47,9 @@ export const createPokemons = (payload) => {
 };
 
 export const CleanDetailPokemon = (payload) => {
-  return { type: CLEAN_DETAIL_POKEMONS, payload };
+  return function (dispatch){
+   return dispatch ({ type: CLEAN_DETAIL_POKEMONS, payload }); 
+  }
 };
 
 export const getTypes = () => {
@@ -56,3 +59,11 @@ export const getTypes = () => {
     });
   };
 };
+
+export const setPages = (num)=>{
+  return function (dispatch) {
+    return dispatch ({type: SET_PAGES, payload: num});
+      
+    }
+}
+

@@ -5,12 +5,15 @@ import {
   CREATE_POKEMONS,
   CLEAN_DETAIL_POKEMONS,
   GET_TYPES,
+  SET_PAGES,
 } from "./actions";
 
 const inicialstate = {
   Pokemon: [],
   Types: [],
   PokemonDetail: {},
+  Pages: 0,
+  Filtrados: [],
 };
 
 export default function rootReducer(state = inicialstate, action) {
@@ -29,19 +32,19 @@ export default function rootReducer(state = inicialstate, action) {
   if (action.type === GET_POKEMONNAME) {
     return {
       ...state,
-      Pokemon: action.payload,
+      Filtrados: [action.payload],
     };
   }
   if (action.type === CREATE_POKEMONS) {
     return {
       ...state,
-      Pokemon: action.payload,
+      PokemonDetail: action.payload,
     };
   }
   if (action.type === CLEAN_DETAIL_POKEMONS) {
     return {
       ...state,
-      PokemonDetail:{},
+      PokemonDetail: {},
     };
   }
   if (action.type === GET_TYPES) {
@@ -50,6 +53,12 @@ export default function rootReducer(state = inicialstate, action) {
       Types: action.payload,
     };
   }
-  
-  return state
+  if (action.type === SET_PAGES) {
+    return {
+      ...state,
+      Pages: action.payload,
+    };
+  }
+
+  return state;
 }

@@ -5,11 +5,18 @@ import { Link } from "react-router-dom";
 
 export default function Cards() {
   const pokemon = useSelector((state) => state.Pokemon); // uso siempre useSelector para pedir mis estados globales de reducer
-  return (
+  const pages = useSelector((state) => state.Pages); 
+  const filter = useSelector((state)=> state.Filtrados)
+
+  function selected(){
+    return filter.length ? filter: pokemon
+  }
+
+  return ( 
     <div>
       {pokemon.length ? (
         <div className='container'>
-          {pokemon.map((c) => (
+          {selected().slice(pages*12,pages*12+12).map((c) => (
             <Link to={`/pokemon/detail/${c.id}`}>
               <Card
                 key={c.id}
@@ -29,3 +36,6 @@ export default function Cards() {
     </div>
   );
 }
+
+
+

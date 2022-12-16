@@ -8,7 +8,7 @@ export default function Landing(){
   return(
     <div className=''>
        <h1> martin gato</h1>
-      <input className= {css.image} type = "image" src={NewTwo} alt ='NewTwo' ></input>
+      <img className= {css.image} type = "image" src={NewTwo} alt ='NewTwo' ></img>
       <Link to = {'/home'}>
       <button className='boton'>Enter</button>
       </Link>
