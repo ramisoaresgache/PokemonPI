@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { createPokemons, getTypes } from "../Redux/actions";
+import { createPokemons, getTypes, getAllPokemons } from "../Redux/actions";
 
 export default function PokemonCreate() {
   const dispatch = useDispatch();
@@ -34,21 +34,17 @@ export default function PokemonCreate() {
   }
 
   function handleSubmit(e) {
-    // e.preventDefault();
+    e.preventDefault();
     dispatch(createPokemons(input));
-    alert("pokemon created");
-    navigate.push("/home");
   }
 
-  // function handleDelete(e) {
-  //   setInput({
-  //     ...input,
-  //     type: input.types.filter((t) => t !== e),
-  //   });
-  // }
+  const home = () => {
+    navigate("/home");
+  };
 
   useEffect(() => {
     dispatch(getTypes());
+    dispatch(getAllPokemons());
   }, [dispatch]);
 
   return (
@@ -57,7 +53,7 @@ export default function PokemonCreate() {
         <button>volver</button>
       </Link>
       <h3>Create Pokemon</h3>
-      <from onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <div>
           <label>Name:</label>
           <input
@@ -77,15 +73,15 @@ export default function PokemonCreate() {
           />
         </div>
         <div>
-        <label>Types:</label>
-        <select onChange={(e) => handleSelect(e)}>
-          {pokemontypes.map((a) => (
-            <option value={a.name}>{a.name}</option>
-          ))}
-        </select>
-        <ul>
-          <li>{input.types.map((e) => e + ",")}</li>
-        </ul>
+          <label>Types:</label>
+          <select onChange={(e) => handleSelect(e)}>
+            {pokemontypes.map((a) => (
+              <option value={a.name}>{a.name}</option>
+            ))}
+          </select>
+          <ul>
+            <li>{input.types.map((e) => e + ",")}</li>
+          </ul>
         </div>
         <div>
           <label>Hp:</label>
@@ -141,16 +137,10 @@ export default function PokemonCreate() {
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <button type='submit'>Create Pokemon</button>
-      </from>
-      {/* {input.types.map((e) => (
-        <div>
-          <p>{e}</p>
-          <button className='botonX' onClick={() => handleDelete(e)}>
-            x
-          </button>
-        </div>
-      ))} */}
+        <button type='submit' onClick={home}>
+          Create Pokemon
+        </button>
+      </form>
     </div>
   );
 }

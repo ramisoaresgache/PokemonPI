@@ -6,6 +6,8 @@ import {
   CLEAN_DETAIL_POKEMONS,
   GET_TYPES,
   SET_PAGES,
+  ABC_POKEMONS,
+  ATK_POKEMONS,
 } from "./actions";
 
 const inicialstate = {
@@ -26,7 +28,6 @@ export default function rootReducer(state = inicialstate, action) {
   if (action.type === GET_POKEMONS_DETAILS) {
     return {
       ...state,
-      PokemonDetail: action.payload,
     };
   }
   if (action.type === GET_POKEMONNAME) {
@@ -57,6 +58,42 @@ export default function rootReducer(state = inicialstate, action) {
     return {
       ...state,
       Pages: action.payload,
+    };
+  }
+  if (action.type === ABC_POKEMONS) {
+    const orderPoke = [...state.Pokemon];
+    action.payload === "ascendente"
+      ? orderPoke.sort((a, b) => {
+          if (a.name < b.name) return -1;
+          if (a.name > b.name) return 1;
+          return 0;
+        })
+      : orderPoke.sort((a, b) => {
+          if (b.name > a.name) return 1;
+          if (b.name < a.name) return -1;
+          return 0;
+        });
+    return {
+      ...state,
+      Pokemon: orderPoke,
+    };
+  }
+  if (action.type === ATK_POKEMONS) {
+    const atkPoke = [...state.Pokemon];
+    action.payload === "mayor"
+      ? atkPoke.sort((a, b) => {
+          if (a.attack < b.attack) return 1;
+          if (a.attack > b.attack) return -1;
+          return 0;
+        })
+      : atkPoke.sort((a, b) => {
+          if (b.attack < a.attack) return -1;
+          if (b.attack > a.attack) return 1;
+          return 0;
+        });
+    return {
+      ...state,
+      Pokemon: atkPoke,
     };
   }
 

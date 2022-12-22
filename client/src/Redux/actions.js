@@ -7,6 +7,8 @@ export const CREATE_POKEMONS = "CREATE_POKEMONS";
 export const CLEAN_DETAIL_POKEMONS = "CLEAN_DETAIL_POKEMONS";
 export const GET_TYPES = "GET_TYPES";
 export const SET_PAGES = "SET_PAGES";
+export const ABC_POKEMONS = "ABC_POKEMONS";
+export const ATK_POKEMONS = "ATK_POKEMONS";
 
 export const getAllPokemons = () => {
   return async function (dispatch) {
@@ -65,5 +67,16 @@ export const setPages = (num)=>{
     return dispatch ({type: SET_PAGES, payload: num});
       
     }
+}
+
+export const abcPokemons = (payload) => {
+  return function (dispatch) {
+    return dispatch({type:ABC_POKEMONS, payload: payload});
+  }
+}
+export const atkPokemons = (payload) => {
+  return function (dispatch) {
+    return dispatch({type:ATK_POKEMONS, payload: payload})
+  }
 }
 

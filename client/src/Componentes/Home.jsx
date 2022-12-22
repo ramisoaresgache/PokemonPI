@@ -5,6 +5,8 @@ import { getAllPokemons } from "../Redux/actions";
 import Cards from "./Cards";
 import Loading from "./Loading";
 import Paginado from "./Paginado";
+import OrderByName from "./OrderByName";
+import OrderByAtk from "./OrderByAtk";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -15,15 +17,30 @@ export default function Home() {
   }, [dispatch]); //esto es para mostrar lo que ni bien empieze por eso pongo el dispatch en este caso
 
   const allPokemons = useSelector((state) => state.Pokemon);
+  // const pokemonByName = useSelector((state) => state.Pokemon);
 
   return (
     <div>
       <div className='paginado container'>
         <Paginado />
       </div>
+      <div>
+        {allPokemons.length ? (
+          <div>
+            <OrderByName />
+          </div>
+        ) : null}
+      </div>
+      <div>
+        {allPokemons.length ? (
+          <div>
+            <OrderByAtk />
+          </div>
+        ) : null}
+      </div>
       {allPokemons.length ? (
         <div>
-          <Cards/>
+          <Cards />
         </div>
       ) : (
         <Loading />
