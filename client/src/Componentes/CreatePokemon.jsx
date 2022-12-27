@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { createPokemons, getTypes, getAllPokemons } from "../Redux/actions";
+import {
+  createPokemons,
+  getTypes,
+  getAllPokemons,
+  CleanPokemon,
+} from "../Redux/actions";
 
 export default function PokemonCreate() {
   const dispatch = useDispatch();
@@ -36,6 +41,7 @@ export default function PokemonCreate() {
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(createPokemons(input));
+    dispatch(CleanPokemon(input));
   }
 
   const home = () => {

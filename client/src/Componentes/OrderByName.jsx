@@ -14,6 +14,7 @@ export default function PokemonOrderByName() {
     <div>
       <h3>Order By Name</h3>
       <select onChange={(e) => handleOrderChange(e)}>
+        <option value="name">Name</option>
         <option value='ascendente'>A-Z</option>
         <option value='descendente'>Z-A</option>
       </select>

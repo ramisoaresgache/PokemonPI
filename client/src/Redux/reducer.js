@@ -4,10 +4,12 @@ import {
   GET_POKEMONNAME,
   CREATE_POKEMONS,
   CLEAN_DETAIL_POKEMONS,
+  CLEAN_POKEMONS,
   GET_TYPES,
   SET_PAGES,
   ABC_POKEMONS,
   ATK_POKEMONS,
+  TYPE_POKEMONS,
 } from "./actions";
 
 const inicialstate = {
@@ -28,6 +30,7 @@ export default function rootReducer(state = inicialstate, action) {
   if (action.type === GET_POKEMONS_DETAILS) {
     return {
       ...state,
+      PokemonDetail: action.payload,
     };
   }
   if (action.type === GET_POKEMONNAME) {
@@ -47,6 +50,12 @@ export default function rootReducer(state = inicialstate, action) {
       ...state,
       PokemonDetail: {},
     };
+  }
+  if(action.type === CLEAN_POKEMONS){
+    return{
+      ...state,
+      Pokemon:[],
+    }
   }
   if (action.type === GET_TYPES) {
     return {
@@ -87,13 +96,22 @@ export default function rootReducer(state = inicialstate, action) {
           return 0;
         })
       : atkPoke.sort((a, b) => {
-          if (b.attack < a.attack) return -1;
-          if (b.attack > a.attack) return 1;
+          if (a.attack < b.attack) return -1;
+          if (a.attack > b.attack) return 1;
           return 0;
         });
     return {
       ...state,
       Pokemon: atkPoke,
+    };
+  }
+  if (action.type === TYPE_POKEMONS) {
+    const typePoke = state.Pokemon.filter((t) =>
+      t.types.map((e) => e.name).includes(action.payload)
+    );
+    return {
+      ...state,
+      Pokemon: typePoke,
     };
   }
 

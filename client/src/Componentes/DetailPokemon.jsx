@@ -17,7 +17,7 @@ export default function Detail() {
     dispatch(CleanDetailPokemon());
     navigate("/home");
   };
-
+  console.log(detail);
   return (
     <div>
       {!detail.name ? (
