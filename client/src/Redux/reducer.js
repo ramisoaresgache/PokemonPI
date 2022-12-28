@@ -42,7 +42,7 @@ export default function rootReducer(state = inicialstate, action) {
   if (action.type === CREATE_POKEMONS) {
     return {
       ...state,
-      PokemonDetail: action.payload,
+      Pokemon: action.payload,
     };
   }
   if (action.type === CLEAN_DETAIL_POKEMONS) {

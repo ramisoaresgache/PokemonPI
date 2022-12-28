@@ -40,26 +40,29 @@ export const getPokemonsNames = (names) => {
   };
 };
 
-export const createPokemons = (payload) => {
-  return async function (dispatch) {
-    return await axios
-      .post("http://localhost:3001/pokemon", payload)
-      .then((response) => {console.log(response)
-        .catch((err) => err.message)
-      })
+export function createPokemons(payload){
+  return function (dispatch){
+    axios({
+      method: "post",
+      url: "http://localhost:3001/pokemon/",
+      data: payload,
+    })
+    .then((response) => {
+      dispatch({ type: CREATE_POKEMONS, payload: response})
+    })
   };
-};
+}
 
 export const CleanDetailPokemon = (payload) => {
-  return function (dispatch){
-   return dispatch ({ type: CLEAN_DETAIL_POKEMONS, payload }); 
-  }
+  return function (dispatch) {
+    return dispatch({ type: CLEAN_DETAIL_POKEMONS, payload });
+  };
 };
 export const CleanPokemon = (payload) => {
-  return function (dispatch){
+  return function (dispatch) {
     return dispatch({ type: CLEAN_POKEMONS, payload });
-  }
-}
+  };
+};
 
 export const getTypes = () => {
   return async function (dispatch) {
@@ -69,26 +72,24 @@ export const getTypes = () => {
   };
 };
 
-export const setPages = (num)=>{
+export const setPages = (num) => {
   return function (dispatch) {
-    return dispatch ({type: SET_PAGES, payload: num});
-      
-    }
-}
+    return dispatch({ type: SET_PAGES, payload: num });
+  };
+};
 
 export const abcPokemons = (payload) => {
   return function (dispatch) {
-    return dispatch({type:ABC_POKEMONS, payload: payload});
-  }
-}
+    return dispatch({ type: ABC_POKEMONS, payload: payload });
+  };
+};
 export const atkPokemons = (payload) => {
   return function (dispatch) {
-    return dispatch({type:ATK_POKEMONS, payload: payload})
-  }
-}
+    return dispatch({ type: ATK_POKEMONS, payload: payload });
+  };
+};
 export const typePokemons = (payload) => {
   return function (dispatch) {
-    return dispatch({type:TYPE_POKEMONS, payload: payload})
-  }
-}
-
+    return dispatch({ type: TYPE_POKEMONS, payload: payload });
+  };
+};

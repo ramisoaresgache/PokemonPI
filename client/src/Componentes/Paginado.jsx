@@ -19,16 +19,41 @@ export default function Paginado() {
     pageNumber.push(i);
   }
 
+  let inicial = 0;
+  let final = 10;
+
   return (
     <nav>
       <ul>
+        <li>
+          <button
+            onClick={() => {
+              inicial = inicial - 10;
+              final = final - 10;
+            }}
+          >
+            prev
+          </button>
+        </li>
         {allPokemons.length && //si tengo este arreglo mapealo  y devolveme por ese arreglo cada unoi de los numeros que te devuelva el paginado
-          pageNumber.map((number, i) => (
+          pageNumber.slice(inicial, final).map((number, i) => (
             <li className='number' key={number}>
               <button onClick={() => handleClick(i)}>{number}</button>
             </li>
           ))}
+        <li>
+          <button
+            onClick={() => {
+              inicial = inicial + 10;
+              final = final + 10;
+            }}
+          >
+            next
+          </button>
+        </li>
       </ul>
     </nav>
   );
 }
+
+// hacer slice antes del map en la linea 26

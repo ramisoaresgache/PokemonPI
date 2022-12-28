@@ -24,7 +24,7 @@ export default function PokemonCreate() {
     weight: "",
     types: [],
   });
-
+  console.log(input);
   function handleChange(e) {
     setInput({
       ...input,
@@ -32,21 +32,15 @@ export default function PokemonCreate() {
     });
   }
   function handleSelect(e) {
-    setInput({
-      ...input,
-      [e.target.types]: e.taget.value,
-    });
+    setInput({ ...input, types: [...input.types, e.target.value] });
   }
 
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(createPokemons(input));
-    dispatch(CleanPokemon(input));
+    navigate("/home")
+    // dispatch(CleanPokemon(input));
   }
-
-  const home = () => {
-    navigate("/home");
-  };
 
   useEffect(() => {
     dispatch(getTypes());
@@ -66,7 +60,7 @@ export default function PokemonCreate() {
             type='text'
             name='name'
             value={input.name}
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -75,19 +69,16 @@ export default function PokemonCreate() {
             type='text'
             name='image'
             value={input.image}
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
           />
         </div>
         <div>
           <label>Types:</label>
-          <select onChange={(e) => handleSelect(e)}>
-            {pokemontypes.map((a) => (
+          <select onChange={handleSelect}>
+            {pokemontypes?.map((a) => (
               <option value={a.name}>{a.name}</option>
             ))}
           </select>
-          <ul>
-            <li>{input.types.map((e) => e + ",")}</li>
-          </ul>
         </div>
         <div>
           <label>Hp:</label>
@@ -95,7 +86,7 @@ export default function PokemonCreate() {
             type='number'
             name='hp'
             value={input.hp}
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -104,7 +95,7 @@ export default function PokemonCreate() {
             type='number'
             name='attack'
             value={input.attack}
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -113,7 +104,7 @@ export default function PokemonCreate() {
             type='number'
             name='defense'
             value={input.defense}
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -122,7 +113,7 @@ export default function PokemonCreate() {
             type='number'
             name='speed'
             value={input.speed}
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -131,7 +122,7 @@ export default function PokemonCreate() {
             type='number'
             name='height'
             value={input.height}
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -140,12 +131,10 @@ export default function PokemonCreate() {
             type='number'
             name='weight'
             value={input.weight}
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
           />
         </div>
-        <button type='submit' onClick={home}>
-          Create Pokemon
-        </button>
+        <input type='submit' value = "Crear Pokemon" />
       </form>
     </div>
   );
