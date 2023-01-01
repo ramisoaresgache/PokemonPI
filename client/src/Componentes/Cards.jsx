@@ -2,6 +2,7 @@ import React from "react";
 import Card from "./Card";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import s from "../Style/Cards.module.css";
 
 export default function Cards() {
   const pokemon = useSelector((state) => state.Pokemon); // uso siempre useSelector para pedir mis estados globales de reducer
@@ -15,7 +16,7 @@ export default function Cards() {
   return ( 
     <div>
       {pokemon.length ? (
-        <div className='container'>
+        <div className={s.containercards}>
           {selected().slice(pages*12,pages*12+12).map((c) => (
             <Link to={`/pokemon/detail/${c.id}`}>
               <Card

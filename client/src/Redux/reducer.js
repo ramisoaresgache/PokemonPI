@@ -51,11 +51,11 @@ export default function rootReducer(state = inicialstate, action) {
       PokemonDetail: {},
     };
   }
-  if(action.type === CLEAN_POKEMONS){
-    return{
+  if (action.type === CLEAN_POKEMONS) {
+    return {
       ...state,
-      Pokemon:[],
-    }
+      Pokemon: [],
+    };
   }
   if (action.type === GET_TYPES) {
     return {

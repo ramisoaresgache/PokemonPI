@@ -15,9 +15,9 @@ export default function AtkPokemons({setOrder, paginado}) {
     <div>
       <h3>Order by Attack</h3>
       <select onChange={(e) => handleChange(e)}>
-        <option value="order">Orden</option>
-        <option value='mayor'>Mayor</option>
-        <option value='menor'>Menor</option>
+        <option value="order">Order</option>
+        <option value='mayor'>Higher</option>
+        <option value='menor'>Lower</option>
       </select>
     </div>
   );

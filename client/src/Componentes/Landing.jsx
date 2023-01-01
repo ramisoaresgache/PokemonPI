@@ -1,17 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import NewTwo from '../Imagen/pika.gif';
-import css from '../Style/LandingPage.module.css'
+import React from "react";
+import { Link } from "react-router-dom";
+import enter from "../Imagen/pokemon.png";
+import gengar from "../Imagen/gengar.gif";
+import s from "../Style/LandingPage.module.css";
 
-
-export default function Landing(){
-  return(
-    <div className=''>
-       <h1> martin gato</h1>
-      <img className= {css.image} type = "image" src={NewTwo} alt ='NewTwo' ></img>
-      <Link to = {'/home'}>
-      <button className='boton'>Enter</button>
-      </Link>
-    </div> 
-  )
+export default function Landing() {
+  return (
+    <div className={s.container}>
+      <div className={s.contimage}>
+        <Link to={"/loading"}>
+          <div>
+            <img className={s.enter}type='image' src={enter} alt='enter' />
+          </div>
+          <div >
+            <div>
+              <img className={s.gen} src={gengar} alt='gengar' />
+            </div>
+          </div>
+        </Link>
+      </div>
+    </div>
+  );
 }

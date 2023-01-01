@@ -5,6 +5,7 @@ import Landing from "./Componentes/Landing";
 import CreatePokemon from "./Componentes/CreatePokemon";
 import DetailPokemon from "./Componentes/DetailPokemon";
 import NavBar from "./Componentes/NavBar";
+import Loading from "./Componentes/Loading";
 
 function App() {
   return (
@@ -12,12 +13,12 @@ function App() {
       <NavBar />
       <Routes>
         <Route exact path='/' element={<Landing />} />
+        <Route exact path='/loading' element={<Loading />} />
         <Route path='/home' element={<Home />} />
-        <Route exact path='/pokemon/detail/:id' element={<DetailPokemon />} />
-        <Route exact path='/createPokemon' element={<CreatePokemon />} />
+        <Route path='/pokemon/detail/:id' element={<DetailPokemon />} />
+        <Route path='/createPokemon' element={<CreatePokemon />} />
       </Routes>
     </div>
   );
 }
-
 export default App;

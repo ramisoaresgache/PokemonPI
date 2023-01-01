@@ -1,4 +1,34 @@
-.image{
+/* *{
+  margin: 0;
+  padding: 0;
+} */
+.container {
+  background-image: url("../Imagen/landingg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
   width: 100%;
   height: 100vh;
 }
+.contimage{
+  position: absolute;
+  left: 70%;
+  bottom: -5px;
+  display: flex;
+  align-content: flex-end ;
+}
+.enter {
+  width: 20rem;
+  height:10rem;
+  position: absolute;
+  top: -80px;
+  left: 70px;
+
+}
+.gen {
+  background-repeat: no-repeat;
+  width: 30rem;
+  height: 25rem;
+}
+

@@ -5,7 +5,6 @@ import {
   createPokemons,
   getTypes,
   getAllPokemons,
-  CleanPokemon,
 } from "../Redux/actions";
 
 export default function PokemonCreate() {
@@ -24,7 +23,7 @@ export default function PokemonCreate() {
     weight: "",
     types: [],
   });
-  console.log(input);
+  
   function handleChange(e) {
     setInput({
       ...input,

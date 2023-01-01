@@ -1,0 +1,29 @@
+.container{
+  width: 200px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 10px #000;
+  margin: 1rem;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+
+.title{
+  justify-content: center;
+  display: flex;
+}
+
+.image{
+  height: 10rem;
+  width: 10rem;
+}
+
+.type{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}

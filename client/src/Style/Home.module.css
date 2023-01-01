@@ -1,0 +1,49 @@
+.container{
+margin: 0;
+padding: 0;
+width: 100%;
+height: 100%;
+}
+/* .imagenfondo{
+height: 100%;
+width: 100%;
+} */
+.fondo{
+margin: 0;
+padding: 0;
+width: 100%;
+height: 100%;
+}
+/* .paginadoContainer{
+background-color: aqua;
+} */
+.containerfiltros{
+  /* background-color:brown */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+
+}
+.ordenamientoName{
+  display: flex;
+  justify-content: center;
+
+}
+.ordenamientoAtk{
+  display: flex;
+  justify-content: center;
+
+}
+.ordenamientoType{
+  display: flex;
+  justify-content: center;
+
+}
+.cardsContainer{
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content:space-around; */
+  /* background-color:darkslateblue */
+}
+.loadingContainer{
+
+}

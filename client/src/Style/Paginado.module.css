@@ -1,0 +1,28 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 30px;
+  list-style-type: none;
+}
+
+.btnpre{
+margin: 5px;
+border-radius: 5px;
+}
+
+.number{
+  display: flex;
+}
+
+
+.btnnum{
+  margin: 5px;
+  border-radius: 5px;
+}
+.btnnext{
+  margin: 5px;
+  border-radius: 5px;
+}

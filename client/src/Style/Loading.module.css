@@ -1,0 +1,54 @@
+.container{
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+
+
+}
+.imagenfondo{
+  width: 100vh;
+  height: 100%;
+}
+.fondoLoading{
+  width: 200vh;
+  height: 100vh;
+}
+
+.gifload{ 
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  width: 40vh;  
+  height: 40vh;
+}
+.loader{
+  width: 20vh;
+  height: 1vh;
+  position: absolute;
+  top: 20%;
+  left: 14%;
+}
+.pikachu{
+  /* background-color: blue; */
+  width: 30vh;
+  height: 30vh;
+  position: absolute;
+  top: 20%;
+  left: 1%;
+}
+.gif{
+
+  width:40vh;
+  height: 40vh;
+}
+
+
+
+
+
+
+
+
