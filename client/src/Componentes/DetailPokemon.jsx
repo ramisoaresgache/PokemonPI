@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import Loading from "./Loading";
 import { getPokemonsDetails, CleanDetailPokemon } from "../Redux/actions";
+import s from "../Style/DetailPokemon.module.css";
 
 export default function Detail() {
   const dispatch = useDispatch();
@@ -22,49 +23,49 @@ export default function Detail() {
     <div>
       {!detail.name ? (
         <div>
-          <Loading />
+          {/* <Navigate to='/loading' replace={<Loading />} /> */}
         </div>
       ) : (
-        <div className='container'>
-          <div className='name'>
-            <h3>{detail.name}</h3>
+        <div className={s.container}>
+          <div  className={s.name}>
+            <h3 >{detail.name}</h3>
           </div>
-          <div className='image'>
+          <div className={s.image}>
             <img src={detail.image} alt='not found' />
           </div>
-          <div className='detail'>
+          <div className={s.detail}>
             <h3>Detalle Pokemon</h3>
           </div>
-          <div>
-            <h3>id:</h3> <div>{detail.id}</div>
+          <div  className={s.id} >
+            <h3>id:</h3> <h3 className={s.numid} >{detail.id}</h3> 
           </div>
-          <div className='speed'>
-            <h3>Speed:</h3> <div>{detail.speed}</div>
+          <div className={s.speed}>
+            <h3>Speed:</h3><h3 className={s.numspeed}>{detail.speed}</h3>
           </div>
-          <div className='attack'>
-            <h3>Attack:</h3> <div>{detail.attack}</div>
+          <div className={s.attack}>
+            <h3>Attack:</h3> <h3 className={s.numattack}>{detail.attack}</h3>
           </div>
-          <div className='hp'>
-            <h3>Hp:</h3> <div>{detail.hp}</div>
+          <div className={s.hp}>
+            <h3>Hp:</h3> <h3 className={s.numdetail}>{detail.hp}</h3>
           </div>
-          <div className='defense'>
+          <div className={s.defense}>
             <h3>Defense: </h3>
-            <div>{detail.defense}</div>
+            <h3 className={s.numdefense}>{detail.defense}</h3>
           </div>
-          <div className='height'>
+          <div className={s.height}>
             <h3>Height: </h3>
-            <div>{detail.height}</div>
+            <h3 className={s.numheight}>{detail.height}</h3>
           </div>
-          <div className='weight'>
+          <div className={s.weight}>
             <h3>Weight: </h3>
-            <div>{detail.weight}</div>
+            <h3 className={s.numweight}>{detail.weight}</h3>
           </div>
-          <div className='types'>
+          <div className={s.types}>
             <h3>Types: </h3>
-            <div>{detail.types.map((x) => x.name).join("/")}</div>
+            <h3 className={s.nametype}>{detail.types.map((x) => x.name).join("/")}</h3>
           </div>
-          <div className='boton'>
-            <button onClick={handleBack}>Back</button>
+          <div className={s.back}>
+            <button className={s.boton} onClick={handleBack}>Back</button>
           </div>
         </div>
       )}

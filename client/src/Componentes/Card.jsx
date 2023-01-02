@@ -12,9 +12,9 @@ export default function Card({ id, name, image, types }) {
         <div className={s.image}>
           <img src={image} alt={name} width='200px' height='250px' />
         </div>
-        <div className={s.type}>
+        <div className={s.divtype}>
           {types.map((e, i)=>{
-           return (<h3 key = {i}> {e.name}</h3>)
+           return (<h3 className={s.type} key = {i}> {e.name}</h3>)
           })}
         </div>
       </div>

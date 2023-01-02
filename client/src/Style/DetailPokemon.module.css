@@ -1,0 +1,121 @@
+.container {
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 100px;
+  padding: 0;
+  width: 70vh;
+  height: 125vh;
+  border-radius: 20px;
+  box-shadow: 0.7px 0.7px 100px 10px rgba(255, 217, 3, 0.566);
+}
+.name {
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
+}
+.image {
+  display: flex;
+  justify-content: center;
+}
+.detail {
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+}
+.id {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align:  center;
+  font-size: 1rem;
+
+}
+.numid{
+  text-align:  center;
+
+
+}
+.speed {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align:  center;
+  font-size: 1rem;
+}
+.numspeed{
+  text-align:  center;
+
+}
+.attack {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align:  center;
+  font-size: 1rem;
+}
+.numattack {
+  text-align:  center;
+
+}
+.hp {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align:  center;
+  font-size: 1rem;
+}
+.numhp {
+  text-align:  center;
+
+}
+.defense {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align:  center;
+  font-size: 1rem;
+}
+.numdefense {
+  text-align:  center;
+
+}
+.height {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align:  center;
+  font-size: 1rem;
+}
+.numheight {
+  text-align:  center;
+
+}
+.weight {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align:  center;
+  font-size: 1rem;
+}
+.numweight {
+  text-align:  center;
+
+}
+.types {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align:  center;
+  font-size: 1rem;
+}
+.nametype {
+  text-align:  center;
+
+}
+.back{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+.boton {
+  text-align:  center;
+  width: 7rem;
+  height: 2rem;
+  border-radius: 5px;
+  font-size: 1rem
+}

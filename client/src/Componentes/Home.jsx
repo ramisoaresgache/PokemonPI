@@ -9,7 +9,6 @@ import OrderByName from "./OrderByName";
 import OrderByAtk from "./OrderByAtk";
 import OrderByType from "./OrderByType";
 import s from "../Style/Home.module.css";
-import fondo from "../Imagen/fondohome.png"
 import { Navigate } from "react-router-dom";
 
 export default function Home() {
@@ -51,7 +50,7 @@ export default function Home() {
           <Cards />
         </div>
       ) : (
-        <div className={s.loadingContainer}>
+        <div>
           <Navigate to="/loading" replace = {<Loading />}/>
         </div>
       )}

@@ -1,7 +1,9 @@
 .App {
+  display: flex;
+  flex-wrap: wrap;
   background-image: url("./Imagen/fondohome.png");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   margin: 0;
   padding: 0;
   width: 100%;

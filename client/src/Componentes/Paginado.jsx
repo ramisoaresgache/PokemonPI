@@ -44,7 +44,7 @@ export default function Paginado() {
           </button>
         </li>
         {allPokemons.length && //si tengo este arreglo mapealo  y devolveme por ese arreglo cada uno de los numeros que te devuelva el paginado
-          pageNumber.slice(0, 5).map((number, i) => (
+          pageNumber.map((number, i) => (
             <li className={s.number} key={number}>
               <button className={s.btnnum} onClick={() => handleClick(i)}>
                 {number}

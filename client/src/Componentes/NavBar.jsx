@@ -3,7 +3,8 @@ import SearchBar from "./SearchBar";
 import { useDispatch } from "react-redux";
 import { getAllPokemons } from "../Redux/actions";
 import { Link, useLocation, Navigate } from "react-router-dom";
-import pokeball from "../Imagen/Home.png";
+import logo from "../Imagen/pokemonpika.png";
+import s from "../Style/NavBar.module.css";
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -17,24 +18,27 @@ const NavBar = () => {
   return (
     location.pathname !== "/" &&
     location.pathname !== "/loading" && (
-      <nav>
-        <div>
+      <nav className={s.nav}>
+        <div className={s.container}>
           {" "}
           <div>
             <Link to='/loading'>
               <img
+                className={s.img}
                 onClick={<Navigate to='/loading' />}
-                // src={pokeball}
+                src={logo}
                 alt='loading'
               />
             </Link>
           </div>
-          <div>
-            <SearchBar />
+          <div className={s.search}>
+            <SearchBar/>
           </div>
-          <Link to='/CreatePokemon'>
-            <h3>Create Pokemon</h3>
-          </Link>
+          <div className={s.divcreate}>
+            <Link to='/CreatePokemon'>
+              <h3 className={s.create}>Create Pokemon</h3>
+            </Link>
+          </div>
         </div>
       </nav>
     )

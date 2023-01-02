@@ -1,0 +1,45 @@
+.container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 100px;
+  padding: 0;
+  width: 70vh;
+  height: 125vh;
+  border-radius: 20px;
+  box-shadow: 0.7px 0.7px 100px 10px rgba(255, 217, 3, 0.566);
+}
+.btnback{}
+.create{}
+.contname{
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+}
+.name{}
+.inputname{}
+.contimg{}
+.img{}
+.inputimg{}
+.conttype{}
+.type{}
+.optiontype{}
+.conthp{}
+.hp{}
+.inputhp{}
+.contattak{}
+.attak{}
+.inputattak{}
+.contdef{}
+.def{}
+.inputdef{}
+.contspeed{}
+.speed{}
+.inputspeed{}
+.contheig{}
+.heig{}
+.inputheig{}
+.contwei{}
+.wei{}
+.inputwei{}
+.btncreate{}
+

@@ -27,6 +27,7 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", typeApi, async (req, res) => {
   const { name, image, hp, attack, defense,speed, height, weight, types } = req.body;
+  console.log(types);
   const typeDB = types.map((a) =>
     Type.findOne({
       where: {
@@ -38,7 +39,7 @@ router.post("/", typeApi, async (req, res) => {
 
   try {
     const createPokemon = await Pokemon.create({
-      name,
+      name, 
       image,
       hp,
       attack,
