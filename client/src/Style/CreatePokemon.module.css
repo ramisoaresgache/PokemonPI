@@ -1,45 +1,204 @@
-.container{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.container {
+  display: flex;
+ flex-wrap: wrap;
+  flex-wrap: wrap;
   margin: 100px;
   padding: 0;
   width: 70vh;
-  height: 125vh;
+  height: 105vh;
   border-radius: 20px;
   box-shadow: 0.7px 0.7px 100px 10px rgba(255, 217, 3, 0.566);
 }
-.btnback{}
-.create{}
-.contname{
-  display: flex;
+.containertitle{
+  display: grid;
+  grid-template-rows: 30px 1fr;
+}
+.btnback {
+  
+}
+.create {
   justify-content: center;
   font-size: 2rem;
 }
-.name{}
-.inputname{}
-.contimg{}
-.img{}
-.inputimg{}
-.conttype{}
-.type{}
-.optiontype{}
-.conthp{}
-.hp{}
-.inputhp{}
-.contattak{}
-.attak{}
-.inputattak{}
-.contdef{}
-.def{}
-.inputdef{}
-.contspeed{}
-.speed{}
-.inputspeed{}
-.contheig{}
-.heig{}
-.inputheig{}
-.contwei{}
-.wei{}
-.inputwei{}
-.btncreate{}
+.contname {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.name {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.inputname {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.contimg {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.img {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+  
+}
+.inputimg {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.conttype {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.type {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+ 
+}
+.inputtype{
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+select{
+  width: 100%;
+  text-align: center;
+}
+.optiontype {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+  background-color: aquamarine;
+}
+.conthp {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.hp {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.inputhp {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.contattak {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.attak {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.inputattak {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.contdef {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.def {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.inputdef {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.contspeed {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.speed {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.inputspeed {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.contheig {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.heig {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.inputheig {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.contwei {
+  display: flex;
 
+  font-size: 2rem;
+  padding: 10px;
+}
+.wei {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.inputwei {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+}
+.btncreate {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10px;
+  border-radius: 5px;
+}

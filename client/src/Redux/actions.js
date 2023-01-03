@@ -33,7 +33,7 @@ export const getPokemonsDetails = (id) => {
 export const getPokemonsNames = (names) => {
   return async function (dispatch) {
     return await axios
-      .get(`http://localhost:3001/pokemon/${names}`)
+      .get(`http://localhost:3001/pokemon?name=${names}`)
       .then((data) => {
         dispatch({ type: GET_POKEMONNAME, payload: data.data });
       });

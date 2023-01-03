@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { createPokemons, getTypes, getAllPokemons } from "../Redux/actions";
 import s from "../Style/CreatePokemon.module.css";
+import validate from "./Validacion.jsx";
+
 export default function PokemonCreate() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const pokemontypes = useSelector((state) => state.Types);
-
+  const [error, setError] = useState({ name: " " });
   const [input, setInput] = useState({
     name: "",
     image: "",
@@ -25,6 +27,7 @@ export default function PokemonCreate() {
       ...input,
       [e.target.name]: e.target.value,
     });
+    setError(validate({ ...input, [e.target.name]: e.target.value }));
   }
   function handleSelect(e) {
     setInput({ ...input, types: [...input.types, e.target.value] });
@@ -35,7 +38,10 @@ export default function PokemonCreate() {
     dispatch(createPokemons(input));
     navigate("/home");
   }
-
+  function filterType(t) {
+    const filtrado = [...input.types].filter((type) => type !== t);
+    setInput({ ...input, types: filtrado });
+  }
   useEffect(() => {
     dispatch(getTypes());
     dispatch(getAllPokemons());
@@ -43,10 +49,13 @@ export default function PokemonCreate() {
 
   return (
     <div className={s.container}>
+    <div className={s.containertitle}>
       <Link to='/home'>
         <button className={s.btnback}>volver</button>
       </Link>
       <h3 className={s.create}>Create Pokemon</h3>
+      </div>
+      <div className={s.containerform}>
       <form onSubmit={handleSubmit}>
         <div className={s.contname}>
           <label className={s.name}>Name:</label>
@@ -57,6 +66,7 @@ export default function PokemonCreate() {
             value={input.name}
             onChange={handleChange}
           />
+          <p>{error.name}</p>
         </div>
         <div className={s.contimg}>
           <label className={s.img}>Image:</label>
@@ -67,6 +77,7 @@ export default function PokemonCreate() {
             value={input.image}
             onChange={handleChange}
           />
+          <p>{error.image}</p>
         </div>
         <div className={s.conttype}>
           <label className={s.type}>Types:</label>
@@ -77,6 +88,10 @@ export default function PokemonCreate() {
               </option>
             ))}
           </select>
+          {input.types?.map((t) => (
+            <input type='button' value={t} onClick={() => filterType(t)} />
+          ))}
+          <p>{error.type}</p>
         </div>
         <div className={s.conthp}>
           <label className={s.hp}>Hp:</label>
@@ -87,6 +102,7 @@ export default function PokemonCreate() {
             value={input.hp}
             onChange={handleChange}
           />
+          <p>{error.hp}</p>
         </div>
         <div className={s.contattak}>
           <label className={s.attak}>Attack:</label>
@@ -97,6 +113,7 @@ export default function PokemonCreate() {
             value={input.attack}
             onChange={handleChange}
           />
+          <p>{error.attack}</p>
         </div>
         <div className={s.contdef}>
           <label className={s.def}>Defense:</label>
@@ -107,6 +124,7 @@ export default function PokemonCreate() {
             value={input.defense}
             onChange={handleChange}
           />
+          <p>{error.defense}</p>
         </div>
         <div className={s.contspeed}>
           <label className={s.speed}>Speed:</label>
@@ -117,6 +135,7 @@ export default function PokemonCreate() {
             value={input.speed}
             onChange={handleChange}
           />
+          <p>{error.speed}</p>
         </div>
         <div className={s.contheig}>
           <label className={s.heig}>Height:</label>
@@ -127,6 +146,7 @@ export default function PokemonCreate() {
             value={input.height}
             onChange={handleChange}
           />
+          <p>{error.height}</p>
         </div>
         <div className={s.contwei}>
           <label className={s.wei}>Weight</label>
@@ -137,9 +157,11 @@ export default function PokemonCreate() {
             value={input.weight}
             onChange={handleChange}
           />
+          <p>{error.weight}</p>
         </div>
         <input className={s.btncreate} type='submit' value='Crear Pokemon' />
       </form>
-    </div>
+      </div>
+      </div>
   );
 }

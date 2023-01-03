@@ -5,11 +5,13 @@ import { typePokemons,  } from "../Redux/actions";
 export default function FilterType() {
   const dispatch = useDispatch();
   const types = useSelector((state) => state.Types);
+  const typeFilter = useSelector((state) => state.TypesFiltered)
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(typePokemons(e.target.value));
   };
+  
   return (
     <div>
       <h3>Order By Types</h3>
@@ -19,8 +21,9 @@ export default function FilterType() {
           <option key={i} value={`${t.name}`}>
             {t.name}
           </option>
-        ))}
+      ))}
       </select>
+      {typeFilter.map((tf) => (<p>{tf}</p>))}
     </div>
   );
 }

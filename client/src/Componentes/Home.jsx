@@ -18,7 +18,7 @@ export default function Home() {
     //esto es para poder mostrar el ciclo de vida de los componentes
     dispatch(getAllPokemons()); //disparo la accion de buscar a todos los pokemons
     dispatch(getTypes());
-  }, [dispatch]); //esto es para mostrar lo que ni bien empieze por eso pongo el dispatch en este caso
+  }, []); //esto es para mostrar lo que ni bien empieze por eso pongo el dispatch en este caso
 
   const allPokemons = useSelector((state) => state.Pokemon);
   const pokemonBytype = useSelector((state) => state.Types);

@@ -1,49 +1,44 @@
-const Validate = (input) => {
-  const err = {};
-  err.name = validateName(input);
-  err.hp = validateHp(input);
-  err.attack = validateAttack(input);
-  err.defense = validateDefense(input);
-  err.speed = validateSpeed(input);
-  err.height = validateHeight(input);
-  err.width = validateWidth(input);
-  err.image = validateImage(input);
+export default function Validate(input) {
+  const error = {};
+  const regexName = /^[a-zA-Zñáéíóúü]*$/;
+  const regexNumber = /^[0-9]+$/;
+  const regexUrl =
+    /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+  if (!input.name) error.name = "need a pokemon name";
+  if (!regexName.test(input.name)) error.name = "only letters are supported";
+  if (input.name.length < 3 || input.name.length > 10)
+    error.name = "between three and ten characters";
 
-  const validateName = (input) => {
-    return input.name.length > 0 && input.name.match(/[0-9]/) ? true : false;
-  };
-  const validateHp = (input) => {
-    return input.hp.length > 0 && input.hp.match(/^[0-9]+$/) ? true : false;
-  };
-  const validateAttack = (input) => {
-    return input.attack.length > 0 && input.attack.match(/^[0-9]+$/)
-      ? true
-      : false;
-  };
-  const validateDefense = (input) => {
-    return input.defense.length > 0 && input.defense.match(/^[0-9]+$/)
-      ? true
-      : false;
-  };
-  const validateSpeed = (input) => {
-    return input.speed.length > 0 && input.speed.match(/^[0-9]+$/)
-      ? true
-      : false;
-  };
-  const validateHeight = (input) => {
-    return input.height.length > 0 && input.height.match(/^[0-9]+$/)
-      ? true
-      : false;
-  };
-  const validateWidth = (input) => {
-    return input.width.length > 0 && input.width.match(/^[0-9]+$/)
-      ? true
-      : false;
-  };
-  const validateImage = (input) => {
-    return input.image.length > 0 && input.image.match(/^(https?:\/\/)?/)
-      ? true
-      : false;
-  };
-  return err;
-};
+  if (!regexNumber.test(input.hp)) error.hp = "only numbers from 1 to 255";
+  if (!parseInt(input.hp) < 1 && parseInt(input.hp) > 255)
+    error.hp = "only numbers from 1 to 255";
+
+  if (!regexNumber.test(input.attack))
+    error.attack = "only numbers from 1 to 255";
+  if (!parseInt(input.attack) < 1 && parseInt(input.attack) > 255)
+    error.attack = "only numbers from 1 to 255";
+
+  if (!regexNumber.test(input.defense))
+    error.defense = "only numbers from 1 to 255";
+  if (!parseInt(input.defense) < 1 && parseInt(input.defense) > 255)
+    error.defense = "only numbers from 1 to 255";
+
+  if (!regexNumber.test(input.speed))
+    error.speed = "only numbers from 1 to 255";
+  if (!parseInt(input.speed) < 1 && parseInt(input.speed) > 255)
+    error.speed = "only numbers from 1 to 255";
+
+  if (!regexNumber.test(input.height))
+    error.height = "only numbers from 1 to 20";
+  if (!parseInt(input.height) < 1 && parseInt(input.height) > 20)
+    error.height = "only numbers from 1 to 20";
+
+  if (!regexNumber.test(input.weight))
+    error.weight = "only numbers from 1 to 1000";
+  if (!parseInt(input.weight) < 1 && parseInt(input.weight) > 1000)
+    error.weight = "only numbers from 1 to 1000";
+
+  if (!regexUrl.test(input.image)) error.image = "image url only";
+  if (input.image.length < 14) error.image = "image url only";
+  return error;
+}

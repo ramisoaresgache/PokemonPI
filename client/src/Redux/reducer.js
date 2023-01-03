@@ -18,6 +18,7 @@ const inicialstate = {
   PokemonDetail: {},
   Pages: 0,
   Filtrados: [],
+  TypesFiltered:[],
 };
 
 export default function rootReducer(state = inicialstate, action) {
@@ -106,12 +107,14 @@ export default function rootReducer(state = inicialstate, action) {
     };
   }
   if (action.type === TYPE_POKEMONS) {
-    const typePoke = state.Pokemon.filter((t) =>
-      t.types.map((e) => e.name).includes(action.payload)
-    );
+    const typePoke = state.Pokemon.filter((type) => {
+      return type.types.map((e) => e.name).includes(action.payload);
+    });
+
     return {
       ...state,
       Pokemon: typePoke,
+      TypesFiltered:[...state.TypesFiltered, action.payload]
     };
   }
 
