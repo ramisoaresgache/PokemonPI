@@ -14,9 +14,10 @@ const Loading = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    //esto es para poder mostrar el ciclo de vida de los componentes
     dispatch(getTypes());
-    dispatch(getAllPokemons());
-  }, [dispatch]);
+    dispatch(getAllPokemons()); //disparo la accion de buscar a todos los pokemons
+  }, [dispatch]); //esto es para mostrar lo que ni bien empieze por eso pongo el dispatch en este caso
   console.log(pokemons);
   return !pokemons.length ? (
     <div className={s.container}>

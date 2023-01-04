@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
-import Loading from "./Loading";
+import { useNavigate, useParams } from "react-router-dom";
 import { getPokemonsDetails, CleanDetailPokemon } from "../Redux/actions";
 import s from "../Style/DetailPokemon.module.css";
 
@@ -22,13 +21,11 @@ export default function Detail() {
   return (
     <div>
       {!detail.name ? (
-        <div>
-          {/* <Navigate to='/loading' replace={<Loading />} /> */}
-        </div>
+        <div>{/* <Navigate to='/loading' replace={<Loading />} /> */}</div>
       ) : (
         <div className={s.container}>
-          <div  className={s.name}>
-            <h3 >{detail.name}</h3>
+          <div className={s.name}>
+            <h3>{detail.name}</h3>
           </div>
           <div className={s.image}>
             <img src={detail.image} alt='not found' />
@@ -36,11 +33,12 @@ export default function Detail() {
           <div className={s.detail}>
             <h3>Detalle Pokemon</h3>
           </div>
-          <div  className={s.id} >
-            <h3>id:</h3> <h3 className={s.numid} >{detail.id}</h3> 
+          <div className={s.id}>
+            <h3>id:</h3> <h3 className={s.numid}>{detail.id}</h3>
           </div>
           <div className={s.speed}>
-            <h3>Speed:</h3><h3 className={s.numspeed}>{detail.speed}</h3>
+            <h3>Speed:</h3>
+            <h3 className={s.numspeed}>{detail.speed}</h3>
           </div>
           <div className={s.attack}>
             <h3>Attack:</h3> <h3 className={s.numattack}>{detail.attack}</h3>
@@ -62,10 +60,14 @@ export default function Detail() {
           </div>
           <div className={s.types}>
             <h3>Types: </h3>
-            <h3 className={s.nametype}>{detail.types.map((x) => x.name).join("/")}</h3>
+            <h3 className={s.nametype}>
+              {detail.types.map((x) => x.name).join("/")}
+            </h3>
           </div>
           <div className={s.back}>
-            <button className={s.boton} onClick={handleBack}>Back</button>
+            <button className={s.boton} onClick={handleBack}>
+              Back
+            </button>
           </div>
         </div>
       )}

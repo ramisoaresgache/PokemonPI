@@ -7,6 +7,7 @@ import s from "../Style/SearchBar.module.css";
 export default function SearchBar() {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
+  
   const handleImputChange = (e) => {
     e.preventDefault();
     setName(e.target.value);
@@ -21,7 +22,7 @@ export default function SearchBar() {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        dispatch(getPokemonsNames(name));
+        dispatch(getPokemonsNames(name));        
         setName("");
       }}
     >
@@ -33,7 +34,7 @@ export default function SearchBar() {
         onChange={handleImputChange}
       />
       <button className={s.btn} type='submit'>
-        Buscar
+        Search
       </button>
     </form>
   );

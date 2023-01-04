@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { atkPokemons } from "../Redux/actions";
+import s from "../Style/Filtrados.module.css"
 
 export default function AtkPokemons({setOrder, paginado}) {
   const dispatch = useDispatch();
@@ -13,9 +14,9 @@ export default function AtkPokemons({setOrder, paginado}) {
   };
   return (
     <div>
-      <h3>Order by Attack</h3>
-      <select onChange={(e) => handleChange(e)}>
-        <option value="order">Order</option>
+      <h3 className={s.title}>Order by Attack</h3>
+      <select className={s.select} onChange={(e) => handleChange(e)}>
+        <option value="order">Order Attack</option>
         <option value='mayor'>Higher</option>
         <option value='menor'>Lower</option>
       </select>

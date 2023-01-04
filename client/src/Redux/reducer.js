@@ -4,7 +4,6 @@ import {
   GET_POKEMONNAME,
   CREATE_POKEMONS,
   CLEAN_DETAIL_POKEMONS,
-  CLEAN_POKEMONS,
   GET_TYPES,
   SET_PAGES,
   ABC_POKEMONS,
@@ -50,12 +49,6 @@ export default function rootReducer(state = inicialstate, action) {
     return {
       ...state,
       PokemonDetail: {},
-    };
-  }
-  if (action.type === CLEAN_POKEMONS) {
-    return {
-      ...state,
-      Pokemon: [],
     };
   }
   if (action.type === GET_TYPES) {

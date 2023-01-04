@@ -1,18 +1,10 @@
-import React, { useEffect } from "react";
 import SearchBar from "./SearchBar";
-import { useDispatch } from "react-redux";
-import { getAllPokemons } from "../Redux/actions";
+
 import { Link, useLocation, Navigate } from "react-router-dom";
 import logo from "../Imagen/pokemonpika.png";
 import s from "../Style/NavBar.module.css";
 
 const NavBar = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getAllPokemons());
-  }, [dispatch]);
-
   const location = useLocation();
 
   return (
@@ -32,7 +24,7 @@ const NavBar = () => {
             </Link>
           </div>
           <div className={s.search}>
-            <SearchBar/>
+            <SearchBar />
           </div>
           <div className={s.divcreate}>
             <Link to='/CreatePokemon'>

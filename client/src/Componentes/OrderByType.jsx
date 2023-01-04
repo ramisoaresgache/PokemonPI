@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { typePokemons,  } from "../Redux/actions";
+import s from "../Style/Filtrados.module.css"
 
 export default function FilterType() {
   const dispatch = useDispatch();
@@ -14,9 +15,9 @@ export default function FilterType() {
   
   return (
     <div>
-      <h3>Order By Types</h3>
-      <select name='types' className='filtro' onChange={handleSubmit}>
-        <option value="types">Types</option>
+      <h3 className={s.title}>Order By Types</h3>
+      <select className={s.select} name='types' onChange={handleSubmit}>
+        <option value="types"> Order Types</option>
         {types.map((t, i) => (
           <option key={i} value={`${t.name}`}>
             {t.name}

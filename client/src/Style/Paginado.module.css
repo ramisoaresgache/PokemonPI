@@ -6,6 +6,7 @@
   padding: 0;
   height: 30px;
   list-style-type: none;
+  
 }
 
 .btnpre{
@@ -15,6 +16,7 @@ width: 4rem;
 height: 2rem;
 font-size: 20px;
 text-align: center;
+box-shadow: 0.5px 0.5px 50px 5px rgba(113, 98, 11, 0.566);
 }
 .btnpre:hover{
   transform: translateX(-5px);
@@ -23,6 +25,7 @@ text-align: center;
 
 .number{
   display: flex;
+  
 }
 
 
@@ -33,6 +36,7 @@ text-align: center;
   border-radius: 5px;
   font-size: 15px;
   text-align: center;
+  box-shadow: 0.5px 0.5px 50px 5px rgba(113, 98, 11, 0.566);
 }
 .btnnum:hover{
   transform: translateX(-5px);
@@ -46,6 +50,7 @@ text-align: center;
   height: 2rem;
   font-size: 20px;
   text-align: center;
+  box-shadow: 0.5px 0.5px 50px 5px rgba(113, 98, 11, 0.566);
 }
 .btnnext:hover{
   transform: translateX(5px);
