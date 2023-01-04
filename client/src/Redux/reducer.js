@@ -9,6 +9,7 @@ import {
   ABC_POKEMONS,
   ATK_POKEMONS,
   TYPE_POKEMONS,
+  NOT_FOUND,
 } from "./actions";
 
 const inicialstate = {
@@ -18,6 +19,7 @@ const inicialstate = {
   Pages: 0,
   Filtrados: [],
   TypesFiltered:[],
+  Notfound:false,
 };
 
 export default function rootReducer(state = inicialstate, action) {
@@ -38,6 +40,12 @@ export default function rootReducer(state = inicialstate, action) {
       ...state,
       Filtrados: [action.payload],
     };
+  }
+  if(action.type === NOT_FOUND){
+    return {
+      ...state,
+      Notfound: !state.Notfound
+    }
   }
   if (action.type === CREATE_POKEMONS) {
     return {

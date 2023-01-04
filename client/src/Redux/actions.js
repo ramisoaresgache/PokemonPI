@@ -10,6 +10,7 @@ export const SET_PAGES = "SET_PAGES";
 export const ABC_POKEMONS = "ABC_POKEMONS";
 export const ATK_POKEMONS = "ATK_POKEMONS";
 export const TYPE_POKEMONS = "TYPE_POKEMONS";
+export const NOT_FOUND = "NOT_FOUND";
 
 export const getAllPokemons = () => {
   return async function (dispatch) {
@@ -30,25 +31,29 @@ export const getPokemonsDetails = (id) => {
 };
 
 export const getPokemonsNames = (names) => {
-  return async function (dispatch) {
-    return await axios
-      .get(`http://localhost:3001/pokemon?name=${names}`)
-      .then((data) => {
-        dispatch({ type: GET_POKEMONNAME, payload: data.data });
-      });
-  };
-};
+    return async function (dispatch) {
+      return await axios
+        .get(`http://localhost:3001/pokemon?name=${names}`)
+        .then((data) => {
+          dispatch({ type: GET_POKEMONNAME, payload: data.data });
+        })
+        .catch( (error) =>  {
+          console.log(error.message);
+        return dispatch({type: NOT_FOUND,})
+        })
+    }
+   
+}
 
-export function createPokemons(payload){
-  return function (dispatch){
+export function createPokemons(payload) {
+  return function (dispatch) {
     axios({
       method: "post",
       url: "http://localhost:3001/pokemon/",
       data: payload,
-    })
-    .then((response) => {
-      dispatch({ type: CREATE_POKEMONS, payload: response})
-    })
+    }).then((response) => {
+      dispatch({ type: CREATE_POKEMONS, payload: response });
+    });
   };
 }
 

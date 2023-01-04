@@ -1,14 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import Not from "../Imagen/notfound.png";
+import { Link } from "react-router-dom";
 import s from "../Style/NotFound.module.css";
-import Loading from "./Loading";
 
 export default function NotFound() {
   return (
-    <div>
-      <NavLink to ="/loading" replace ={Loading}/>
-      <img className={s.img} src={Not} alt='NotFound' />
+    <div className={s.img}>
+      <Link to={"/home"}>
+        <div>
+          <button className={s.btn}>Go Home</button>
+        </div>
+      </Link>
     </div>
   );
 }

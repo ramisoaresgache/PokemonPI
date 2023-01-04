@@ -1,12 +1,11 @@
 .container {
-  /* background-color: aqua; */
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   margin: 100px;
   padding: 0;
   width: 70vh;
-  height: 125vh;
+  height: 130vh;
   border-radius: 20px;
   box-shadow: 0.7px 0.7px 100px 10px rgba(255, 217, 3, 0.566);
 }

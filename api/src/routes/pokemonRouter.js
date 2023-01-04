@@ -9,7 +9,11 @@ router.get("/", async (req, res) => {
   const name = req.query.name;
   try {
     const namePoke = await getPokemons(name);
-    res.status(200).json(namePoke);
+    if (namePoke.length === 0) {
+      res.status(404).send({ error: "Not found Pokemon" });
+    } else {
+      res.status(200).json(namePoke);
+    }
   } catch (error) {
     res.status(404).send({ error: error.message });
   }
@@ -26,7 +30,8 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", typeApi, async (req, res) => {
-  const { name, image, hp, attack, defense,speed, height, weight, types } = req.body;
+  const { name, image, hp, attack, defense, speed, height, weight, types } =
+    req.body;
   console.log(types);
   const typeDB = types.map((a) =>
     Type.findOne({
@@ -39,7 +44,7 @@ router.post("/", typeApi, async (req, res) => {
 
   try {
     const createPokemon = await Pokemon.create({
-      name, 
+      name,
       image,
       hp,
       attack,
@@ -49,8 +54,8 @@ router.post("/", typeApi, async (req, res) => {
       weight,
     });
     let resultPokemon = await Pokemon.findOne({
-      where:{
-        name:name,
+      where: {
+        name: name,
       },
       include: {
         model: Type,
@@ -58,9 +63,10 @@ router.post("/", typeApi, async (req, res) => {
         throug: {
           attributes: [],
         },
-      },}) 
-  
-    maptypeDB.map(x => createPokemon.addType(x))
+      },
+    });
+
+    maptypeDB.map((x) => createPokemon.addType(x));
 
     res.status(201).send(resultPokemon);
   } catch (error) {
@@ -69,5 +75,3 @@ router.post("/", typeApi, async (req, res) => {
 });
 
 module.exports = router;
-
-

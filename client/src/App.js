@@ -6,6 +6,7 @@ import CreatePokemon from "./Componentes/CreatePokemon";
 import DetailPokemon from "./Componentes/DetailPokemon";
 import NavBar from "./Componentes/NavBar";
 import Loading from "./Componentes/Loading";
+import NotFound from "./Componentes/NotFound";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path='/' element={<Landing />} />
         <Route exact path='/loading' element={<Loading />} />
         <Route path='/home' element={<Home />} />
+        <Route path="/notfound" element={<NotFound />} />
         <Route path='/pokemon/detail/:id' element={<DetailPokemon />} />
         <Route path='/createPokemon' element={<CreatePokemon />} />
       </Routes>
