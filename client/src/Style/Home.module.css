@@ -12,7 +12,11 @@
 }
 .containerfiltros {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.reset{
+  display: flex;
+  justify-content: center;
 }
 .ordenamientoName {
   display: flex;

@@ -7,6 +7,7 @@ import DetailPokemon from "./Componentes/DetailPokemon";
 import NavBar from "./Componentes/NavBar";
 import Loading from "./Componentes/Loading";
 import NotFound from "./Componentes/NotFound";
+import About from "./Componentes/About";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/notfound" element={<NotFound />} />
         <Route path='/pokemon/detail/:id' element={<DetailPokemon />} />
         <Route path='/createPokemon' element={<CreatePokemon />} />
+        <Route path='/about' element={<About />} />
       </Routes>
     </div>
   );

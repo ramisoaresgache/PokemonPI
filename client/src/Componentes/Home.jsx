@@ -6,6 +6,7 @@ import Paginado from "./Paginado";
 import OrderByName from "./OrderByName";
 import OrderByAtk from "./OrderByAtk";
 import OrderByType from "./OrderByType";
+import Clear from "./Clear";
 import s from "../Style/Home.module.css";
 import { Navigate } from "react-router-dom";
 import Loading from "./Loading";
@@ -21,6 +22,15 @@ export default function Home() {
       <Paginado />
       {/* </div> */}
       <div className={s.containerfiltros}>
+      {allPokemons.length ? (
+          <div className={s.reset}>
+            <Clear />
+          </div>
+        ) : (
+          <div>
+            <Navigate to='/loadig' replace={<Loading />} />
+          </div>
+        )}
         {allPokemons.length ? (
           <div className={s.ordenamientoName}>
             <OrderByName />

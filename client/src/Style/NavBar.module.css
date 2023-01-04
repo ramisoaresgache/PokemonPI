@@ -6,8 +6,21 @@
 }
 .container{
   display: grid;
-  grid-template-columns: 200px 1fr 200px;
+  grid-template-columns:  200px 250px 1fr 150px 200px;
   
+}
+.containermusic{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.music{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 80px;
 }
 .img{
   display: flex;
@@ -17,16 +30,22 @@
   height: 80px;
 }
 .search{
-  
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 100px;
 }
 .divcreate{
   display: flex;
   justify-content: center;
   align-items: center;
 
+}
+.about{
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: rgb(0, 0, 0);
 }
 .create{
   display: flex;
