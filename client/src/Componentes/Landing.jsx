@@ -8,16 +8,15 @@ export default function Landing() {
   return (
     <div className={s.container}>
       <div className={s.contimage}>
+        <img className={s.enter} type='image' src={enter} alt='enter' />
+      </div>
+      <div className={s.contbtn}>
         <Link to={"/loading"}>
-          <div>
-            <img className={s.enter}type='image' src={enter} alt='enter' />
-          </div>
-          <div >
-            <div>
-              <img className={s.gen} src={gengar} alt='gengar' />
-            </div>
-          </div>
+          <button className={s.btn}>ENTER</button>
         </Link>
+      </div>
+      <div className={s.contgen}>
+        <img className={s.gen} src={gengar} alt='gengar' />
       </div>
     </div>
   );

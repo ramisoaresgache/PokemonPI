@@ -15,9 +15,9 @@ export default function Detail() {
 
   const handleBack = () => {
     dispatch(CleanDetailPokemon());
-    navigate("/home");
+    navigate("/loading");
   };
-  console.log(detail);
+
   return (
     <div>
       {!detail.name ? (

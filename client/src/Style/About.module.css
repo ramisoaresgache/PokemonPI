@@ -35,11 +35,12 @@ border-radius: 5px;
   padding: 20px;
   border-radius: 15px;
   justify-content: center;
+
 }
 .title {
   font-size: 3rem;
   justify-content: center;
-  margin-bottom: 0;
+  margin-bottom: 0px;
 }
 .parrafo {
   margin-top: 0;

@@ -18,7 +18,6 @@ const Loading = () => {
     dispatch(getTypes());
     dispatch(getAllPokemons()); //disparo la accion de buscar a todos los pokemons
   }, [dispatch]); //esto es para mostrar lo que ni bien empieze por eso pongo el dispatch en este caso
-  console.log(pokemons);
   return !pokemons.length ? (
     <div className={s.container}>
       <div className={s.imagenfondo}>

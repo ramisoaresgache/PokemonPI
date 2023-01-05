@@ -36,7 +36,9 @@ export default function PokemonCreate() {
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(createPokemons(input));
-    navigate("/home");
+    dispatch(getAllPokemons())
+     navigate("/loading");
+
   }
   function filterType(t) {
     const filtrado = [...input.types].filter((type) => type !== t);
@@ -56,7 +58,7 @@ export default function PokemonCreate() {
         <h3 className={s.create}>Create Pokemon</h3>
       </div>
       <div className={s.containerform}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={(e)=>handleSubmit(e)}>
           <div className={s.contname}>
             <label className={s.name}>Name:</label>
             <input

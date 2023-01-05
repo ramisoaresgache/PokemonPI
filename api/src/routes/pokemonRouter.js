@@ -32,7 +32,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", typeApi, async (req, res) => {
   const { name, image, hp, attack, defense, speed, height, weight, types } =
     req.body;
-  console.log(types);
+  
   const typeDB = types.map((a) =>
     Type.findOne({
       where: {
@@ -40,6 +40,7 @@ router.post("/", typeApi, async (req, res) => {
       },
     })
   );
+
   const maptypeDB = await Promise.all(typeDB);
 
   try {
@@ -65,9 +66,7 @@ router.post("/", typeApi, async (req, res) => {
         },
       },
     });
-
     maptypeDB.map((x) => createPokemon.addType(x));
-
     res.status(201).send(resultPokemon);
   } catch (error) {
     res.status(400).send({ error: error.message });

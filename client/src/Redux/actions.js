@@ -38,7 +38,6 @@ export const getPokemonsNames = (names) => {
           dispatch({ type: GET_POKEMONNAME, payload: data.data });
         })
         .catch( (error) =>  {
-          console.log(error.message);
         return dispatch({type: NOT_FOUND,})
         })
     }

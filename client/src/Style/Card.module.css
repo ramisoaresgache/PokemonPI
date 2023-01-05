@@ -10,7 +10,7 @@
   border-radius: 10px;
   padding: 1rem;
   color: rgb(0, 0, 0);
- 
+ background-color: rgba(255, 255, 255, 0.322);
 }
 
 .container:hover{

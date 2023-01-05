@@ -15,7 +15,6 @@ export default function Home() {
   const allPokemons = useSelector((state) => state.Pokemon);
   const pokemonBytype = useSelector((state) => state.Types);
   const notFound = useSelector((state) => state.Notfound);
-
   return (
     <div className={s.container}>
       {/* <div className={s.paginadoContainer}> */}
@@ -28,7 +27,7 @@ export default function Home() {
           </div>
         ) : (
           <div>
-            <Navigate to='/loadig' replace={<Loading />} />
+            <Navigate to='/loading' replace={<Loading />} />
           </div>
         )}
         {allPokemons.length ? (
@@ -37,7 +36,7 @@ export default function Home() {
           </div>
         ) : (
           <div>
-            <Navigate to='/loadig' replace={<Loading />} />
+            <Navigate to='/loading' replace={<Loading />} />
           </div>
         )}
         {allPokemons.length ? (
@@ -46,7 +45,7 @@ export default function Home() {
           </div>
         ) : (
           <div>
-            <Navigate to='/loadig' replace={<Loading />} />
+            <Navigate to='/loading' replace={<Loading />} />
           </div>
         )}
         {pokemonBytype.length ? (
@@ -55,7 +54,7 @@ export default function Home() {
           </div>
         ) : (
           <div>
-            <Navigate to='/loadig' replace={<Loading />} />
+            <Navigate to='/loading' replace={<Loading />} />
           </div>
         )}
       </div>
@@ -65,7 +64,7 @@ export default function Home() {
         </div>
       ) : (
         <div>
-          <Navigate to='/loadig' replace={<Loading />} />
+          <Navigate to='/loading' replace={<Loading />} />
         </div>
       )}
       {notFound === true ? (
