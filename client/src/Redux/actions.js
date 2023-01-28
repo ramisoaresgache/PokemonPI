@@ -12,6 +12,7 @@ export const ATK_POKEMONS = "ATK_POKEMONS";
 export const TYPE_POKEMONS = "TYPE_POKEMONS";
 export const NOT_FOUND = "NOT_FOUND";
 
+
 export const getAllPokemons = () => {
   return async function (dispatch) {
     return await axios.get("http://localhost:3001/pokemon").then((data) => {
@@ -91,3 +92,4 @@ export const typePokemons = (payload) => {
     return dispatch({ type: TYPE_POKEMONS, payload: payload });
   };
 };
+

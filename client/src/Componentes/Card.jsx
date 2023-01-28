@@ -1,6 +1,5 @@
 import React from "react";
-import s from "../Style/Card.module.css"
-
+import s from "../Style/Card.module.css";
 
 export default function Card({ id, name, image, types }) {
   return (
@@ -13,8 +12,13 @@ export default function Card({ id, name, image, types }) {
           <img src={image} alt={name} width='200px' height='250px' />
         </div>
         <div className={s.divtype}>
-          {types.map((e, i)=>{
-           return (<h3 className={s.type} key = {i}> {e.name}</h3>)
+          {types.map((e, i) => {
+            return (
+              <h3 className={s.type} key={i}>
+                {" "}
+                {e.name}
+              </h3>
+            );
           })}
         </div>
       </div>

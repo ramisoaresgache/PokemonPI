@@ -24,6 +24,7 @@ export default function Detail() {
         <div>{/* <Navigate to='/loading' replace={<Loading />} /> */}</div>
       ) : (
         <div className={s.container}>
+          {/* */}
           <div className={s.name}>
             <h3>{detail.name}</h3>
           </div>

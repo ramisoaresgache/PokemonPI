@@ -17,9 +17,7 @@ export default function Home() {
   const notFound = useSelector((state) => state.Notfound);
   return (
     <div className={s.container}>
-      {/* <div className={s.paginadoContainer}> */}
       <Paginado />
-      {/* </div> */}
       <div className={s.containerfiltros}>
       {allPokemons.length ? (
           <div className={s.reset}>

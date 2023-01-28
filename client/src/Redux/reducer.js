@@ -18,8 +18,8 @@ const inicialstate = {
   PokemonDetail: {},
   Pages: 0,
   Filtrados: [],
-  TypesFiltered:[],
-  Notfound:false,
+  TypesFiltered: [],
+  Notfound: false,
 };
 
 export default function rootReducer(state = inicialstate, action) {
@@ -41,11 +41,11 @@ export default function rootReducer(state = inicialstate, action) {
       Filtrados: [action.payload],
     };
   }
-  if(action.type === NOT_FOUND){
+  if (action.type === NOT_FOUND) {
     return {
       ...state,
-      Notfound: !state.Notfound
-    }
+      Notfound: !state.Notfound,
+    };
   }
   if (action.type === CREATE_POKEMONS) {
     return {
@@ -115,9 +115,10 @@ export default function rootReducer(state = inicialstate, action) {
     return {
       ...state,
       Pokemon: typePoke,
-      TypesFiltered:[...state.TypesFiltered, action.payload]
+      TypesFiltered: [...state.TypesFiltered, action.payload],
     };
   }
+
 
   return state;
 }

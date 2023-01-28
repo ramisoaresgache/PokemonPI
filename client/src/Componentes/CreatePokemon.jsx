@@ -22,6 +22,8 @@ export default function PokemonCreate() {
     types: [],
   });
 
+
+
   function handleChange(e) {
     setInput({
       ...input,
@@ -161,7 +163,7 @@ export default function PokemonCreate() {
             />
             <p>{error.weight}</p>
           </div>
-          <input className={s.btncreate} type='submit' value='Create Pokemon' />
+          <input className={s.btncreate} type='submit' disabled={input.weight === ""}  value='Create Pokemon' />
         </form>
       </div>
     </div>

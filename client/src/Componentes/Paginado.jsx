@@ -34,7 +34,6 @@ export default function Paginado() {
 
   let inicial = 0;
   let final = pageNumber.length - 1;
-
   return (
     <div>
       <ul className={s.container}>
@@ -49,7 +48,7 @@ export default function Paginado() {
               <button className={s.btnnum} onClick={() => handleClick(i)}>
                 {number}
               </button>
-            </li>
+            </li>       
           ))}
         <li>
           <button className={s.btnnext} onClick={() => handleNext()}>
